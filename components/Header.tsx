@@ -1,21 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BellIcon, SearchIcon } from "@heroicons/react/solid"
+import { BellIcon, SearchIcon } from "@heroicons/react/solid";
+import { useEffect, useState } from "react";
 
 // images 
 import netflixLogo from '../public/assets/Netflix_2015_logo.svg';
 import userIcon from '../public/assets/user_icon.png';
 
+
 const Header = (): JSX.Element => {
+
+    const [isScrolled, setIsScrolled] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        }
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
+    }, []);
+
     return (
-        <header>
+        <header className={`${isScrolled ? 'bg-[#141414]' : ''}`}>
             <div className="flex items-center space-x-2 md:space-x-10">
                 <Image 
                     src={netflixLogo}
                     width={100}
-                    height={100}
+                    height={36}
                     objectFit="contain"
-                    className="cursor-pointer"
+                    className="cursor-pointer object-contain"
                     alt="Netflix Logo"
                 />
                 <ul className="hidden space-x-4 md:flex">

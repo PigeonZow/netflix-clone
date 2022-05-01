@@ -16,6 +16,6 @@
 /* custom class names */
 @layer components {
     .headerLink {
-        @apply cursor-pointer text-sm font-light text-[#e5e5e5] transition duration-[400ms];
+        @apply cursor-pointer text-sm font-light text-[#e5e5e5] transition duration-500 hover:text-[#b3b3b3];
     }
 }
