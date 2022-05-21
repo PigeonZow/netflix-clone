@@ -5,7 +5,7 @@
 /* html body heading */
 @layer base {
     body {
-        @apply bg-[#141414] text-white;
+        @apply bg-[#141414] text-white !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
     }
 
     header {
@@ -16,7 +16,7 @@
 /* custom class names */
 @layer components {
     .headerLink {
-        @apply cursor-pointer text-sm font-light text-[#e5e5e5] transition duration-500 hover:text-[#b3b3b3];
+        @apply cursor-pointer text-sm font-light text-[#e5e5e5] transition duration-[400ms] hover:text-[#b3b3b3];
     }
 
     .bannerButton {
